@@ -8,7 +8,7 @@ const About = () => {
           <span className="tag mb-3">About Me</span>
           <h2 className="section-heading">Who I Am</h2>
           <p className="section-subheading max-w-3xl mx-auto">
-            A Economics student with a deep passion for technology, data and complex challenges
+            An Economics student with a deep passion for technology, data and complex challenges
           </p>
         </div>
         
