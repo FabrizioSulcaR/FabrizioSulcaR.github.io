@@ -29,7 +29,7 @@ const projects = [
     image: "https://ebiz.pe/wp-content/uploads/sites/5/elementor/thumbs/240118-nota-a-qipdhvul2pl2iqjvlnxtrg5gske1usiqc8tyy1fe58.png",
     techStack: ["Python", "Google Cloud Platform", "Pandas", "SQL"],
     resources: [
-      { type: "article", url: "https://www.elmontero.pe/nota/240118-nota-a-qipdhvul2pl2iqjvlnxtrg5gske1usiqc8tyy1fe58" },
+      { type: "article", url: "/blog/1" },
       { type: "video", url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" }
     ]
   },
@@ -43,7 +43,7 @@ const projects = [
     image: "https://pbs.twimg.com/media/EteuuDmWQAAPW4K?format=jpg&name=large",
     techStack: ["HTML", "CSS", "JavaScript", "Airtable"],
     resources: [
-      { type: "article", url: "https://www.elmontero.pe/nota/240118-nota-a-qipdhvul2pl2iqjvlnxtrg5gske1usiqc8tyy1fe58" },
+      { type: "article", url: "/blog/2" },
     ]
   },
   {

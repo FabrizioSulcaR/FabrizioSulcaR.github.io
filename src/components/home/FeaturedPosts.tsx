@@ -7,19 +7,19 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 const featuredPosts = [
   {
     id: "1",
-    title: "Economic Implications of AI Adoption in Financial Markets",
-    excerpt: "Exploring how artificial intelligence is reshaping investment strategies and market dynamics.",
-    date: "May 15, 2023",
-    category: "Economics",
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7"
+    title: "A State Supplier Search Engine for Transparent Public Contracts",
+    excerpt: "How data analytics and search technology are being used to enhance transparency in government procurement and fight corruption.",
+    date: "March 15, 2024",
+    category: "Data Analytics",
+    image: "https://ebiz.pe/wp-content/uploads/sites/5/elementor/thumbs/240118-nota-a-qipdhvul2pl2iqjvlnxtrg5gske1usiqc8tyy1fe58.png"
   },
   {
     id: "2",
-    title: "Bridging Finance and Technology: A Personal Journey",
-    excerpt: "My perspective on the evolving relationship between traditional finance and emerging technologies.",
-    date: "March 22, 2023",
-    category: "Career",
-    image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742"
+    title: "A Digital Platform for Medical Oxygen Access during the COVID-19 Pandemic",
+    excerpt: "Creating a life-saving digital solution to connect oxygen suppliers with patients during the height of the COVID-19 crisis.",
+    date: "February 28, 2024",
+    category: "Healthcare Tech",
+    image: "https://pbs.twimg.com/media/EteuuDmWQAAPW4K?format=jpg&name=large"
   },
   {
     id: "3",
