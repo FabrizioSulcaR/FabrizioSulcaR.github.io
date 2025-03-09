@@ -1,34 +1,60 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, FileText, Database, Presentation, Video as VideoIcon } from "lucide-react";
+
+// Define the resource types and their corresponding icons
+const resourceTypes = {
+  github: { label: "GitHub", icon: Github},
+  demo: { label: "Demo", icon: ExternalLink },
+  article: { label: "Article", icon: FileText },
+  dataset: { label: "Dataset", icon: Database },
+  slides: { label: "Slides", icon: Presentation },
+  video: { label: "Video", icon: VideoIcon }
+};
+
+// { type: "github", url: "https://github.com/yourusername/market-analysis" },
+// { type: "demo", url: "https://market-analysis-demo.com" },
+// { type: "article", url: "https://medium.com/your-article" }
+// { type: "dataset", url: "https://market-analysis-demo.com" },
+// { type: "slides", url: "https://medium.com/your-article" }
+// { type: "video", url: "https://medium.com/your-article" }
+
+// image: "https://elmontonero.pe/upload/uploads_images/taype_3.jpeg",
 
 const projects = [
   {
     id: 1,
-    title: "AI-Powered Market Analysis",
-    description: "Developed a machine learning model to analyze financial market trends and predict potential market movements using Python and TensorFlow.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
-    techStack: ["Python", "TensorFlow", "Pandas", "SQL"],
-    githubUrl: "https://github.com/yourusername/market-analysis",
-    liveUrl: "https://market-analysis-demo.com"
+    title: "A State Supplier Search Engine for Transparent Public Contracts",
+    description: "Developed a search engine to enhance transparency in public contracts by identifying suppliers, connections, and irregularities, providing insights on key suppliers and corruption risks.",
+    image: "https://ebiz.pe/wp-content/uploads/sites/5/elementor/thumbs/240118-nota-a-qipdhvul2pl2iqjvlnxtrg5gske1usiqc8tyy1fe58.png",
+    techStack: ["Python", "Google Cloud Platform", "Pandas", "SQL"],
+    resources: [
+      { type: "article", url: "https://www.elmontero.pe/nota/240118-nota-a-qipdhvul2pl2iqjvlnxtrg5gske1usiqc8tyy1fe58" },
+      { type: "video", url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" }
+    ]
   },
+
+    // image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+
   {
     id: 2,
-    title: "Economic Data Visualization Platform",
-    description: "Created an interactive dashboard for visualizing complex economic datasets using React and D3.js.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
-    techStack: ["React", "D3.js", "TypeScript", "Tailwind"],
-    githubUrl: "https://github.com/yourusername/econ-viz",
-    liveUrl: "https://econ-viz-demo.com"
+    title: "A Digital Platform for Medical Oxygen Access during the COVID-19 Pandemic",
+    description: "Developed a digital platform and recruited a volunteer team to collect, validate, and update data of medical oxygen sales, rentals, and refills in Perú during the COVID-19 pandemic. ",
+    image: "https://pbs.twimg.com/media/EteuuDmWQAAPW4K?format=jpg&name=large",
+    techStack: ["HTML", "CSS", "JavaScript", "Airtable"],
+    resources: [
+      { type: "article", url: "https://www.elmontero.pe/nota/240118-nota-a-qipdhvul2pl2iqjvlnxtrg5gske1usiqc8tyy1fe58" },
+    ]
   },
   {
     id: 3,
-    title: "Automated Trading System",
+    title: "VacuniusBot: A Real-Time COVID-19 Vaccination Center Finder",
     description: "Built a automated trading system that implements various trading strategies and risk management techniques.",
-    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3",
-    techStack: ["Python", "FastAPI", "PostgreSQL", "Docker"],
-    githubUrl: "https://github.com/yourusername/trading-system",
-    liveUrl: "https://trading-system-demo.com"
+    image: "https://pbs.twimg.com/profile_images/1441429016695738369/3OgJHGkD_400x400.jpg",
+    techStack: ["Python", "Google Cloud Platform", "Twitter API"],
+    resources: [
+      { type: "demo", url: "https://x.com/VacuniusBot/status/1446997837284265985" },
+    ]
   }
 ];
 
@@ -46,7 +72,7 @@ const Projects = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <Card key={project.id} className="group hover:shadow-lg transition-shadow">
+            <Card key={project.id} className="group hover:shadow-lg transition-shadow flex flex-col">
               <CardHeader>
                 <div className="h-48 relative overflow-hidden rounded-t-lg mb-4">
                   <img 
@@ -55,10 +81,10 @@ const Projects = () => {
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <CardTitle className="line-clamp-2">{project.title}</CardTitle>
-                <CardDescription className="line-clamp-2">{project.description}</CardDescription>
+                <CardTitle>{project.title}</CardTitle>
+                <CardDescription className="mt-2">{project.description}</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="mt-auto">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.techStack.map((tech) => (
                     <span key={tech} className="px-2 py-1 bg-secondary text-xs rounded-full">
@@ -67,28 +93,21 @@ const Projects = () => {
                   ))}
                 </div>
                 <div className="flex gap-4">
-                  <Button variant="outline" size="sm" asChild>
-                    <a 
-                      href={project.githubUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center"
-                    >
-                      <Github className="h-4 w-4 mr-2" />
-                      Code
-                    </a>
-                  </Button>
-                  <Button variant="outline" size="sm" asChild>
-                    <a 
-                      href={project.liveUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center"
-                    >
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Demo
-                    </a>
-                  </Button>
+                  {project.resources?.map((resource) => {
+                    const resourceType = resourceTypes[resource.type];
+                    if (!resourceType) return null;
+                    
+                    const Icon = resourceType.icon;
+                    
+                    return (
+                      <Button variant="outline" size="sm" asChild key={resource.type}>
+                        <a href={resource.url} target="_blank" rel="noopener noreferrer">
+                          <Icon className="mr-2 h-4 w-4" />
+                          {resourceType.label}
+                        </a>
+                      </Button>
+                    );
+                  })}
                 </div>
               </CardContent>
             </Card>

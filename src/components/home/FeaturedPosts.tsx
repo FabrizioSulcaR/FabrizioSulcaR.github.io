@@ -45,25 +45,27 @@ const FeaturedPosts = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {featuredPosts.map((post) => (
-            <Card key={post.id} className="group hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="h-48 relative overflow-hidden rounded-t-lg mb-4">
-                  <img 
-                    src={post.image} 
-                    alt={post.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <CardTitle className="line-clamp-2">{post.title}</CardTitle>
-                <CardDescription className="line-clamp-2">{post.excerpt}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex justify-between items-center text-sm text-muted-foreground">
-                  <span>{post.category}</span>
-                  <span>{post.date}</span>
-                </div>
-              </CardContent>
-            </Card>
+            <Link to={`/blog/${post.id}`} key={post.id}>
+              <Card className="group hover:shadow-lg transition-shadow h-full">
+                <CardHeader>
+                  <div className="h-48 relative overflow-hidden rounded-t-lg mb-4">
+                    <img 
+                      src={post.image} 
+                      alt={post.title}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <CardTitle className="line-clamp-2">{post.title}</CardTitle>
+                  <CardDescription className="line-clamp-2">{post.excerpt}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex justify-between items-center text-sm text-muted-foreground">
+                    <span>{post.category}</span>
+                    <span>{post.date}</span>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
 

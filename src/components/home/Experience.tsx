@@ -1,4 +1,3 @@
-
 const experiences = [
   {
     title: "Tech Lead",
@@ -115,6 +114,30 @@ const Experience = () => {
                 <div>
                   <p className="font-medium">Exchange Semester</p>
                   <p className="text-sm text-muted-foreground">Maastricht University • 2024-2025</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-8 p-6 glass-card rounded-lg">
+              <h4 className="text-xl font-semibold mb-4">Leadership Experiences</h4>
+              <div className="space-y-6">
+              {/* 
+                <div>
+                  <p className="font-medium">Partnerships Coordinator</p>
+                  <p className="text-sm text-muted-foreground">La Nave • 2025 - Present</p>
+                </div>
+              */}
+                <div>
+                  <p className="font-medium">Strategy Consultant</p>
+                  <p className="text-sm text-muted-foreground">180DCUP • 2024</p>
+                </div>
+                <div>
+                  <p className="font-medium">Projects Coordinator</p>
+                  <p className="text-sm text-muted-foreground">La Nave • 2024</p>
+                </div>
+                <div>
+                  <p className="font-medium">Career Coordinator</p>
+                  <p className="text-sm text-muted-foreground">Entrepreneurship Club • 2023</p>
                 </div>
               </div>
             </div>

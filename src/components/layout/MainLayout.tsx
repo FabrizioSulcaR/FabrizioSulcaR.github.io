@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ScrollToTop from "@/components/utils/ScrollToTop";
 
 interface NavLink {
   name: string;
@@ -10,11 +11,10 @@ interface NavLink {
 
 const NAV_LINKS: NavLink[] = [
   { name: "Home", path: "/" },
-  { name: "About", path: "/#about" },
-  { name: "Experience", path: "/#experience" },
-  { name: "Projects", path: "/#projects" },
-// {/*  { name: "Blog", path: "/blog" }, */
-  { name: "Contact", path: "/#contact" }
+  { name: "About", path: "/about" },
+  { name: "Experience", path: "/experience" },
+  { name: "Projects", path: "/projects" },
+  { name: "Contact", path: "/contact" }
 ];
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
@@ -22,6 +22,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,26 +55,42 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
     if (path === "/") {
       return location.pathname === "/" && !location.hash;
     }
-    if (path.startsWith("/#")) {
-      return location.hash === path.substring(1);
-    }
-    return location.pathname === path;
+    // Remove the leading slash for section IDs
+    const sectionId = path.substring(1);
+    return location.hash === `#${sectionId}` || location.pathname === path;
   };
 
   const handleNavClick = (path: string, e?: React.MouseEvent) => {
     e?.preventDefault();
     setIsMenuOpen(false); // Close mobile menu when clicking a link
-    
-    if (path.startsWith('/#')) {
-      const element = document.querySelector(path.substring(1));
+
+    if (location.pathname !== "/" && path.startsWith("/")) {
+      // If we're not on the home page and the path is a section,
+      // first navigate to home then scroll
+      navigate("/");
+      setTimeout(() => {
+        const sectionId = path.substring(1);
+        const element = document.querySelector(`#${sectionId}`);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else if (location.pathname === "/" && path.startsWith("/")) {
+      // If we're on the home page, just scroll to the section
+      const sectionId = path.substring(1);
+      const element = document.querySelector(`#${sectionId}`);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
+    } else {
+      // For non-section links (like /blog), just navigate
+      navigate(path);
     }
   };
 
   return (
     <div className="min-h-screen flex flex-col">
+      <ScrollToTop />
       <header className={`fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b ${
         scrollPosition > 0 ? "border-border" : "border-transparent"
       } transition-colors`}>
