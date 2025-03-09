@@ -1,65 +1,13 @@
-
 import { useState } from "react";
 import MainLayout from "@/components/layout/MainLayout";
 import BlogCard, { BlogPost } from "@/components/blog/BlogCard";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
-
-// Mock blog posts data
-const allPosts: BlogPost[] = [
-  {
-    id: "1",
-    title: "Economic Implications of AI Adoption in Financial Markets",
-    excerpt: "Exploring how artificial intelligence is reshaping investment strategies and market dynamics.",
-    date: "May 15, 2023",
-    category: "Economics",
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7"
-  },
-  {
-    id: "2",
-    title: "Bridging Finance and Technology: A Personal Journey",
-    excerpt: "My perspective on the evolving relationship between traditional finance and emerging technologies.",
-    date: "March 22, 2023",
-    category: "Career",
-    image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742"
-  },
-  {
-    id: "3",
-    title: "Problem-Solving Frameworks for Complex Systems",
-    excerpt: "Analytical approaches to tackling multi-faceted challenges in technology and economics.",
-    date: "January 10, 2023",
-    category: "Methodology",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
-  },
-  {
-    id: "4",
-    title: "The Future of Work in an AI-Driven Economy",
-    excerpt: "Examining how artificial intelligence is transforming job markets and career opportunities.",
-    date: "November 5, 2022",
-    category: "Economics",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
-  },
-  {
-    id: "5",
-    title: "Quantitative Models for Economic Forecasting",
-    excerpt: "A deep dive into mathematical approaches for predicting economic trends and market behaviors.",
-    date: "September 18, 2022",
-    category: "Finance",
-    image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742"
-  },
-  {
-    id: "6",
-    title: "Ethics in AI: A Financial Perspective",
-    excerpt: "Exploring the ethical considerations of implementing AI in financial decision-making processes.",
-    date: "July 30, 2022",
-    category: "Ethics",
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7"
-  }
-];
+import allPosts from "@/data/blogPosts";
 
 // Available categories for filtering
-const categories = ["All", "Economics", "Finance", "Career", "Methodology", "Ethics"];
+const categories = ["All", "Data Analytics", "Healthcare Tech"];
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState("");

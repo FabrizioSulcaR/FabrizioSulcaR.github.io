@@ -2,36 +2,11 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-
-// Import first 3 posts from mock data
-const featuredPosts = [
-  {
-    id: "1",
-    title: "A State Supplier Search Engine for Transparent Public Contracts",
-    excerpt: "How data analytics and search technology are being used to enhance transparency in government procurement and fight corruption.",
-    date: "March 15, 2024",
-    category: "Data Analytics",
-    image: "https://ebiz.pe/wp-content/uploads/sites/5/elementor/thumbs/240118-nota-a-qipdhvul2pl2iqjvlnxtrg5gske1usiqc8tyy1fe58.png"
-  },
-  {
-    id: "2",
-    title: "A Digital Platform for Medical Oxygen Access during the COVID-19 Pandemic",
-    excerpt: "Creating a life-saving digital solution to connect oxygen suppliers with patients during the height of the COVID-19 crisis.",
-    date: "February 28, 2024",
-    category: "Healthcare Tech",
-    image: "https://pbs.twimg.com/media/EteuuDmWQAAPW4K?format=jpg&name=large"
-  },
-  {
-    id: "3",
-    title: "Problem-Solving Frameworks for Complex Systems",
-    excerpt: "Analytical approaches to tackling multi-faceted challenges in technology and economics.",
-    date: "January 10, 2023",
-    category: "Methodology",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
-  }
-];
+import { getFeaturedPosts } from "@/data/blogPosts";
 
 const FeaturedPosts = () => {
+  const featuredPosts = getFeaturedPosts();
+  
   return (
     <section className="py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

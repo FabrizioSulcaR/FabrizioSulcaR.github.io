@@ -29,7 +29,7 @@ const projects = [
     image: "https://ebiz.pe/wp-content/uploads/sites/5/elementor/thumbs/240118-nota-a-qipdhvul2pl2iqjvlnxtrg5gske1usiqc8tyy1fe58.png",
     techStack: ["Python", "Google Cloud Platform", "Pandas", "SQL"],
     resources: [
-      { type: "article", url: "/blog/1" },
+      { type: "article", url: "/blog/state-supplier-search-engine-transparent-public-contracts" },
       { type: "video", url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" }
     ]
   },
@@ -39,11 +39,11 @@ const projects = [
   {
     id: 2,
     title: "A Digital Platform for Medical Oxygen Access during the COVID-19 Pandemic",
-    description: "Developed a digital platform and recruited a volunteer team to collect, validate, and update data of medical oxygen sales, rentals, and refills in Perú during the COVID-19 pandemic. ",
+    description: "Developed oxigenoperu.info, a digital platform and recruited a volunteer team to collect, validate, and update data of medical oxygen sales, rentals, and refills in Perú during the COVID-19 pandemic. ",
     image: "https://pbs.twimg.com/media/EteuuDmWQAAPW4K?format=jpg&name=large",
     techStack: ["HTML", "CSS", "JavaScript", "Airtable"],
     resources: [
-      { type: "article", url: "/blog/2" },
+      { type: "article", url: "/blog/digital-platform-medical-oxygen-covid-19-pandemic" },
     ]
   },
   {

@@ -1,4 +1,3 @@
-
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -9,6 +8,7 @@ export interface BlogPost {
   date: string;
   category: string;
   image: string;
+  content?: string;
 }
 
 interface BlogCardProps {
