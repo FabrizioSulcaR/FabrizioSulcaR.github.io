@@ -23,17 +23,17 @@ const Blog = () => {
 
   return (
     <MainLayout>
-      <section className="pt-24 pb-16 bg-secondary/30">
+      <section className="pt-16 sm:pt-20 md:pt-24 pb-10 sm:pb-16 bg-secondary/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-display font-bold text-primary mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary mb-2 sm:mb-4">
             Learning in Loops
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mb-8">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mb-6 sm:mb-8">
             Insights, analyses, experiences and reflections I have day to day
           </p>
           
-          <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
-            <div className="relative flex-1 max-w-lg">
+          <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+            <div className="relative flex-1 w-full sm:max-w-lg">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
               <Input
                 type="text"
@@ -60,16 +60,16 @@ const Blog = () => {
         </div>
       </section>
       
-      <section className="py-12">
+      <section className="py-8 sm:py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {filteredPosts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
               {filteredPosts.map(post => (
                 <BlogCard key={post.id} post={post} />
               ))}
             </div>
           ) : (
-            <div className="text-center py-20">
+            <div className="text-center py-12 sm:py-20">
               <h3 className="text-xl font-medium mb-2">No articles found</h3>
               <p className="text-muted-foreground">
                 Try adjusting your search or filter to find what you're looking for.
